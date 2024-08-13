@@ -1,22 +1,28 @@
 const images = [
   {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
   },
   {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
   },
   {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
   },
 ];
 
-const gallery = document.querySelector('.gallery');
+const galleryContainer = document.querySelector('.gallery');
 
-const galleryItems = images.map(({ url, alt }) => {
-  console.log(`<li><img src="${url}" alt="${alt}"></li>`);
+// Creează marcajul HTML pentru galeria de imagini
+const galleryMarkup = images.map(({ url, alt }) => {
+  return `
+    <li class="gallery__item">
+      <img class="gallery__image" src="${url}" alt="${alt}">
+    </li>
+  `;
 }).join('');
 
-gallery.insertAdjacentHTML('beforeend', galleryItems);
+// Adaugă toate elementele la DOM dintr-o singură operațiune
+galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
